@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Technofirst Workflow Inc.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_waiting.css') }}?v=1">
+    <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
+        type="image/png" style="width: 32px; height: 32px;">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="glass-card">
+            <div class="container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="app-logo">
+            </div>
+
+            <div class="status-header">
+                <p class="status-label">CURRENT STATUS</p>
+                <div id="statusIndicator" class="pulse-dot"></div>
+            </div>
+
+            <div class="queue-section">
+                <p class="queue-title">YOUR QUEUE NUMBER</p>
+                <h1 id="assignedID" class="queue-number">----</h1>
+            </div>
+
+            <div id="waitMsg" class="interaction-area">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Printing your documents...</p>
+                <span class="sub-text">We'll notify you here the moment it's ready.</span>
+            </div>
+
+            <div id="doneMsg" class="interaction-area success-view" style="display: none;">
+                <div class="check-icon">✔</div>
+                <h2 class="finished-title">PRINTING FINISHED!</h2>
+                <p class="finished-text">Please proceed to the counter for collection.</p>
+                <button class="btn-new" onclick="window.location.href='/'">PRINT ANOTHER</button>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+    <script src="{{ url_for('static', filename='scripts/scripts_waiting.js') }}?v=1"></script>
+</body>
+
+</html>

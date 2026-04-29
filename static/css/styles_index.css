@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,700;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background:
+        linear-gradient(135deg, rgba(54, 68, 109, 0.776), rgba(181, 146, 190, 0.776)),
+        url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 400px;
+    height: auto;
+}
+
+#greeting {
+    color: #f0f0f1;
+    font-family: "Montserrat";
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.container .material-symbols-outlined {
+    color: #c9ced9;
+    font-size: 50px;
+}
+
+.drop-area {
+    width: 300px;
+    padding: 30px;
+    background-color: #0d1221;
+    border: 2px dashed #888;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+
+    color: #f0f0f1;
+    font-family: "Arimo";
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.drop-area.dragover {
+    background: #f0f0f0;
+    border-color: #333;
+}
+
+.drop-area * {
+    pointer-events: none;
+}
+
+.progress-bg {
+    background: rgba(0, 0, 0, 0.2);
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressBar {
+    background: #00ffcc;
+    width: 0%;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+#statusText {
+    color: #00ffcc;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.history-container {
+    width: 100%;                /* Take up full width of the glass card */
+    display: flex;
+    justify-content: flex-start; /* Pushes the button to the far left */
+    margin-top: 15px;           /* Space between the drop area and button */
+}
+
+.history-container .material-symbols-outlined {
+    color: #c9ced9;
+    font-size: 50px;
+}
+
+/*.btnHistory {
+    background: transparent;      
+    color: #f0f0f1;               
+    border: none;                 
+    padding: 10px 0;              
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    opacity: 0.8;                 
+}
+
+.btnHistory:hover {
+    opacity: 1;                  
+    transform: translateX(5px);   
+    color: #00ffcc;               
+}*

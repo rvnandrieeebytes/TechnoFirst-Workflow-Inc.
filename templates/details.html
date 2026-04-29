@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Details - Technofirst Workflow Inc.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_details.css') }}?v=1">
+    <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
+        type="image/png" style="width: 32px; height: 32px;">
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="glass-card">
+            <div class="header-row">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="app-logo"><br>
+                <h1 class="title">DETAILS</h1>
+            </div>
+
+            <div class="file-config-box">
+                <p class="config-label">Configuring:</p>
+                <p id="displayFileName" class="filename-text">No file selected</p>
+            </div>
+
+            <div class="form-container">
+                <div class="form-grid">
+                    <label>Paper Type:</label>
+                    <select id="paperType">
+                        <option value="Regular">Regular</option>
+                        <option value="Laminated">Laminated</option>
+                    </select>
+
+                    <label>Size:</label>
+                    <select id="sizeSelect">
+                        <option value="Letter">Letter</option>
+                        <option value="A4">A4</option>
+                        <option value="Legal">Legal</option>
+                    </select>
+
+                    <label>Color Mode:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="colorMode" value="colored" checked> Colored</label>
+                        <label><input type="radio" name="colorMode" value="bw"> Black & White</label>
+                    </div>
+
+                    <label class="doc-option">Is this a Thesis?</label>
+                    <div class="radio-group doc-option">
+                        <label><input type="radio" name="isThesis" value="Yes"> Yes</label>
+                        <label><input type="radio" name="isThesis" value="No" checked> No</label>
+                    </div>
+
+                    <label class="doc-option">Include Binding?</label>
+                    <div class="radio-group doc-option">
+                        <label><input type="radio" name="shouldBind" value="Yes"> Yes</label>
+                        <label><input type="radio" name="shouldBind" value="No" checked> No</label>
+                    </div>
+
+                    <label>In a hurry?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="isHurry" value="yes"> Yes</label>
+                        <label><input type="radio" name="isHurry" value="no" checked> No</label>
+                    </div>
+                </div>
+
+                <div id="prioritySection" class="hurry-section">
+                    <hr class="divider">
+                    <div class="form-grid">
+                        <label>Priority:</label>
+                        <div class="slider-container">
+                            <input type="range" id="priorityRange" min="1" max="10" value="5">
+                            <div class="slider-labels">
+                                <span>1 (High)</span>
+                                <span id="priorityValue">5</span>
+                                <span>10 (Low)</span>
+                            </div>
+                        </div>
+
+                        <label>Deadline:</label>
+                        <input type="time" id="deadlineTime" required>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn-submit" id="submitBtn" value="ADD TO PRINT QUEUE">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/scripts_details.js') }}?v=1"></script>
+</body>
+
+</html>

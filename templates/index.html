@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Technofirst Workflow Inc.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_index.css') }}?v=1">
+    <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
+        type="image/png" style="width: 32px; height: 32px;">
+</head>
+
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Technofirst Workflow Inc." id="logo">
+    </div>
+    <h1 id="greeting">
+        WELCOME
+    </h1>
+
+    <div class="container">
+        <div id="dropArea" class="drop-area">
+            <span class="material-symbols-outlined">attachment</span>
+            <p>Drag & Drop files here or click to attach</p>
+        </div>
+
+        <input type="file" id="fileInput" hidden accept=".jpg, .jpeg, .png, .webp, .txt, .pdf, .docx, .doc, .xlsx, .xls, .ppt, pptx>
+        <p id=" fileName"></p>
+
+        <div id="uploadStatus" style="display:none; width: 100%; margin-top: 20px;">
+            <div class="progress-bg">
+                <div id="progressBar"></div>
+            </div>
+            <p id="statusText">Uploading: 0%</p>
+        </div>
+
+        <!--
+        <div class="history-container">
+            <button id="history" class="btnHistory">
+                <span class="material-symbols-outlined">history</span>History
+            </button>
+        </div>
+        -->
+
+        <script src="{{ url_for('static', filename='scripts/scripts_index.js') }}?v=1"></script>
+</body>
+
+</html>
