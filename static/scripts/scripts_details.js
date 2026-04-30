@@ -12,6 +12,34 @@ document.addEventListener("DOMContentLoaded", () => {
         displayFileName.style.color = "#ff4444";
     }
 
+    // --- DYNAMIC SIZE SELECTION ---
+    const paperTypeSelect = document.getElementById('paperType'); // Ensure this ID matches your HTML
+    const sizeSelect = document.getElementById('sizeSelect');
+
+    const laminatedSizes = ["ID", "3R", "4R", "5R", "A4"];
+    const standardSizes = ["Letter", "A4", "Legal"];
+
+    paperTypeSelect.addEventListener('change', function () {
+        const isLaminated = this.value === 'Laminated';
+        sizeSelect.innerHTML = "";
+
+        if (isLaminated) {
+                sizeSelect.innerHTML = `
+                    <option value="ID">ID Size</option>
+                    <option value="3R">3R</option>
+                    <option value="4R">4R</option>
+                    <option value="5R">5R</option>
+                    <option value="A4">A4</option>
+                `;
+            } else {
+                sizeSelect.innerHTML = `
+                    <option value="Letter">Letter (Short)</option>
+                    <option value="A4">A4</option>
+                    <option value="Legal">Legal (Long)</option>
+                `;
+            }
+    });
+
     // 3. Hurry/Priority Toggle Logic
     const hurryRadios = document.getElementsByName('isHurry');
     const prioritySection = document.getElementById('prioritySection');
