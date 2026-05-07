@@ -104,5 +104,11 @@ def remove_from_admin():
     print(f"DEBUG: Order {target} deleted from queue.")
     return jsonify({"success": True})
 
+@app.route('/api/get_queue')
+def get_queue():
+    # This sends your current print_queue list to the browser as JSON
+    # It assumes your list variable is named 'print_queue'
+    return jsonify(print_queue)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

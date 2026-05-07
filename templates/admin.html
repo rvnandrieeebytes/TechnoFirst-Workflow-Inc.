@@ -33,7 +33,7 @@
                     <th>ACTION</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id = "queueTableBody">
                 {% for order in orders %}
                 <tr style="border-bottom: 1px solid #333;">
                     <td style="padding: 10px;">{{ order.assignedID }}</td>

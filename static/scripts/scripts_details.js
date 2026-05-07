@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const paperTypeSelect = document.getElementById('paperType'); // Ensure this ID matches your HTML
     const sizeSelect = document.getElementById('sizeSelect');
 
-    const laminatedSizes = ["ID", "3R", "4R", "5R", "A4"];
-    const standardSizes = ["Letter", "A4", "Legal"];
-
     paperTypeSelect.addEventListener('change', function () {
         const isLaminated = this.value === 'Laminated';
         sizeSelect.innerHTML = "";
