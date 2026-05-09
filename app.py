@@ -12,6 +12,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # THE QUEUE (Shared Memory)
 print_queue = []
+order_counter = 0
 
 @app.route('/')
 def index(): return render_template('index.html')
@@ -42,11 +43,14 @@ def upload_file():
 # --- THE FIX: ADD TO QUEUE ROUTE ---
 @app.route('/add_to_queue', methods=['POST'])
 def add_to_queue():
+    global order_counter
     data = request.json
     
+    order_counter += 1
+
     # Auto-generate the ID
     prefix = 'R' if data.get('isHurry') == 'yes' else ''
-    new_id = f"{prefix}{len(print_queue) + 1:04d}"
+    new_id = f"{prefix}{order_counter:04d}"
     
     # Ensure all new fields are stored in the object
     order = {
