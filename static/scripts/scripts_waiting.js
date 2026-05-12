@@ -1,6 +1,11 @@
 const urlParams = new URLSearchParams(window.location.search);
 const fileName = urlParams.get('file');
 
+if (!fileName) {
+    alert("No file detected. Redirecting to upload page.");
+    window.location.href = "/"; // Send them back to the start
+}
+
 const poll = setInterval(() => {
     fetch(`/check_status?file=${encodeURIComponent(fileName)}`)
         .then(res => res.json())
