@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         // Define exactly what files your print shop accepts
         const allowedExtensions = [
-            'jpg', 'jpeg', 'png', 'gif', 'webp', // Images
-            'pdf', 'docx', 'doc', 'xlsx', 'xls', 'ppt', 'pptx', 'txt' // Documents
+            'jpg', 'jpeg', 'png', // Images
+            'pdf', 'docx', 'doc' // Documents
         ];
 
         if (!allowedExtensions.includes(ext)) {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const response = JSON.parse(xhr.responseText);
                     console.log("Server Response:", response);
                     // Redirect to details page
-                    window.location.href = `/details?file=${encodeURIComponent(response.fileName)}`;
+                    window.location.href =`/details?file=${encodeURIComponent(response.fileName)}`;
                 } else {
                     console.error("Upload failed with status:", xhr.status);
                     alert("Upload failed. Check terminal for Python errors.");

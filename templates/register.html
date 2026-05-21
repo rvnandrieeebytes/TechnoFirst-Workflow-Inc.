@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Create Employee Account: Technofirst Workflow Inc.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_register.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
+        type="image/png">
+
+</head>
+
+<body>
+
+    <form class="register-card" autocomplete="off" onsubmit="createAccount(event)">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+
+        <h1>CREATE ACCOUNT</h1>
+
+        <input type="text" autocomplete="new-password" id="fullName" placeholder="Full Name" required>
+
+        <input type="text" autocomplete="new-password" id="username" placeholder="Username" required>
+
+        <input type="tel" autocomplete="new-password" id="contactNumber" placeholder="Contact Number" pattern="[0-9]{11}" maxlength="11" required>
+
+        <input type="password" autocomplete="new-password" id="password" placeholder="Password" required>
+
+        <!-- ✅ ROLE SELECTION -->
+        <select id="role" required>
+
+            <option value="rider" selected>Rider</option>
+
+            <!-- keep admin visible only if you want -->
+            <option value="admin">Admin</option>
+
+        </select>
+
+        <button type="submit" id="submitBtn">
+            CREATE ACCOUNT
+        </button>
+
+        <a href="/user_login" class="login-link">
+            Already have an account?
+        </a>
+
+    </form>
+
+    </form>
+
+    <script src="{{ url_for('static', filename='scripts/scripts_register.js') }}"></script>
+
+</body>
+
+</html>

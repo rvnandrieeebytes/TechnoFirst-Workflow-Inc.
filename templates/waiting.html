@@ -2,10 +2,11 @@
 <html>
 
 <head>
-    <title>Technofirst Workflow Inc.</title>
+    <title>Waiting Queue: Technofirst Workflow Inc.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_waiting.css') }}?v=1">
     <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
-        type="image/png" style="width: 32px; height: 32px;">
+        type="image/png">
 </head>
 
 <body>
@@ -25,17 +26,39 @@
                 <h1 id="assignedID" class="queue-number">----</h1>
             </div>
 
-            <div id="waitMsg" class="interaction-area">
-                <div class="loading-spinner"></div>
-                <p class="loading-text">Printing your documents...</p>
-                <span class="sub-text">We'll notify you here the moment it's ready.</span>
+            <div class="price-section">
+                <p class="price-title">TOTAL PRICE</p>
+                <h2 id="priceDisplay" class="price-display">₱0</h2>
             </div>
 
-            <div id="doneMsg" class="interaction-area success-view" style="display: none;">
-                <div class="check-icon">✔</div>
-                <h2 class="finished-title">PRINTING FINISHED!</h2>
-                <p class="finished-text">Please proceed to the counter for collection.</p>
-                <button class="btn-new" onclick="window.location.href='/'">PRINT ANOTHER</button>
+            <div id="waitMsg" class="interaction-area">
+
+                <p id="statusText" class="loading-text">
+                    Waiting in queue...
+                </p>
+
+                <!-- PRICE -->
+                <div id="priceContainer" style="display:none;"></div>
+
+                <!-- RIDER -->
+                <div id="riderInfo" style="display:none;">
+
+                    <p>
+                        Rider:
+                        <span id="riderName"></span>
+                    </p>
+
+                    <p>
+                        Contact:
+                        <span id="riderContact"></span>
+                    </p>
+
+                </div>
+
+                <!-- ORDER AGAIN -->
+                <button id="orderAgainBtn" class="btn-new" style="display:none; margin-top: 20px;" onclick="window.location.href='/'">
+                    ORDER AGAIN
+                </button>
             </div>
         </div>
     </div>

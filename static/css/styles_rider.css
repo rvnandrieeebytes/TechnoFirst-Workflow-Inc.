@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    /* Ensures no weird gaps at the edges */
+    padding: 40px;
+    min-height: 100vh;
+    color: white;
+
+    /* 1. Adjusted the opacity to 0.4 for clarity, and added a dark overlay 
+          to make the stars "pop" like the magazine cover. */
+    background:
+        linear-gradient(135deg, rgba(10, 15, 30, 0.5), rgba(30, 20, 50, 0.5)),
+        url("../images/bg.png"),
+        #020205;
+    /* 2. THE "ENDLESS" TRICK: 
+          This pins the stars in place so they don't scroll with the content. */
+    background-attachment: fixed;
+
+    /* 3. High-quality scaling */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Dark fallback color to match the deep space theme */
+    background-color: #020205;
+}
+
+.rider-name {
+
+    color: rgba(255, 255, 255, 0.7);
+
+    margin-top: -10px;
+
+    letter-spacing: 1px;
+}
+
+/* MAIN CONTAINER */
+
+.main-container {
+    width: 100%;
+}
+
+/* HEADER */
+
+/* HEADER */
+
+.header-section {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    flex-wrap: wrap;
+}
+
+/* LEFT SIDE */
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.header-section h1 {
+
+    color: white;
+
+    font-size: 3rem;
+    font-weight: 700;
+
+    letter-spacing: 0.15rem;
+
+    line-height: 1.1;
+}
+
+/* RIGHT SIDE */
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.rider-name {
+
+    color: rgba(255,255,255,0.7);
+
+    letter-spacing: 1px;
+
+    text-align: right;
+}
+
+.logout-btn {
+
+    background: #e53935;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 24px;
+
+    border-radius: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+/* DELIVERY CARD */
+
+.delivery-container {
+    background: rgba(13, 18, 33, 0.78);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* TABLE WRAPPER */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    color: white;
+}
+
+/* HEADER */
+
+thead {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+th {
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08rem;
+
+    white-space: nowrap;
+}
+
+/* ROWS */
+
+tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* CELLS */
+
+td {
+    padding: 18px;
+
+    vertical-align: top;
+
+    font-size: 0.95rem;
+
+    line-height: 1.5;
+}
+
+/* ADDRESS */
+
+.address-cell {
+    max-width: 300px;
+
+    white-space: normal;
+
+    word-break: break-word;
+}
+
+/* DEADLINE */
+
+.urgent {
+    color: #ff5252;
+
+    font-weight: bold;
+}
+
+/* BUTTON */
+
+.deliver-btn {
+    background: #4CAF50;
+
+    border: none;
+
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.deliver-btn:hover {
+    background: #43a047;
+}
+
+.deliver-btn:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+/* EMPTY STATE */
+
+.empty-state {
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    padding: 40px;
+
+    font-size: 1rem;
+}
+
+/* =========================
+   MOBILE CARD VIEW
+========================= */
+
+@media (max-width: 768px) {
+
+    .header-section {
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+        margin-bottom: 20px;
+    }
+
+    .header-left {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+        justify-content: center;
+    }
+
+    .header-section h1 {
+
+        font-size: 2rem;
+
+        line-height: 1.1;
+
+        letter-spacing: 0.03rem;
+
+        word-break: break-word;
+    }
+
+    .logout-btn {
+
+        padding: 12px 18px;
+
+        font-size: 0.9rem;
+
+        border-radius: 12px;
+
+        white-space: nowrap;
+        
+        align-items: flex-start;
+    }
+
+    .rider-name {
+
+        width: 100%;
+
+        text-align: center;
+
+        font-size: 0.95rem;
+
+        margin-top: 5px;
+    }
+
+    .delivery-container {
+        padding: 15px;
+        border-radius: 18px;
+    }
+
+    /* HIDE TABLE HEADER */
+    thead {
+        display: none;
+    }
+
+    table,
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    table {
+        min-width: 100%;
+    }
+
+    tbody tr {
+
+        background: rgba(255,255,255,0.04);
+
+        border: 1px solid rgba(255,255,255,0.12);
+
+        border-radius: 18px;
+
+        padding: 18px;
+
+        margin-bottom: 18px;
+
+        overflow: hidden;
+    }
+
+    td {
+
+        border: none;
+
+        padding: 12px 0;
+
+        text-align: left;
+
+        font-size: 0.95rem;
+
+        word-break: break-word;
+    }
+
+    td::before {
+
+        display: block;
+
+        font-size: 0.8rem;
+
+        font-weight: 700;
+
+        color: rgba(255,255,255,0.65);
+
+        margin-bottom: 4px;
+
+        letter-spacing: 0.05rem;
+    }
+
+    td:nth-child(1)::before {
+        content: "QUEUE ID";
+    }
+
+    td:nth-child(2)::before {
+        content: "CUSTOMER";
+    }
+
+    td:nth-child(3)::before {
+        content: "ADDRESS";
+    }
+
+    td:nth-child(4)::before {
+        content: "DEADLINE";
+    }
+
+    td:nth-child(5)::before {
+        content: "PRICE";
+    }
+
+    td:nth-child(6)::before {
+        content: "ACTION";
+    }
+
+    .deliver-btn {
+
+        width: 100%;
+
+        padding: 14px;
+
+        border-radius: 12px;
+
+        font-size: 0.95rem;
+
+        margin-top: 5px;
+    }
+
+    .address-cell {
+        max-width: 100%;
+    }
+}

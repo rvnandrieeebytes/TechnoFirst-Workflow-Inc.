@@ -2,11 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,700;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-    background:
-        linear-gradient(135deg, rgba(54, 68, 109, 0.776), rgba(181, 146, 190, 0.776)),
-        url("../images/bg.jpg");
+    background: 
+        linear-gradient(135deg, rgba(10, 15, 30, 0.5), rgba(30, 20, 50, 0.5)), 
+        url("../images/bg.png"), 
+        #020205;
+
+    /* This is the most important part for the 'endless' feel */
+    background-attachment: fixed; 
+    
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Adding a dark base color prevents a white flash while the image loads */
+    background-color: #05050a;
+
+    margin: 0;
+    padding: 40px;
+    color: white;
+
+    image-rendering: auto;
 }
 
 .container {
@@ -51,6 +66,10 @@ body {
     font-weight: 700;
 }
 
+.mobile-text {
+  display: none;
+}
+
 .drop-area.dragover {
     background: #f0f0f0;
     border-color: #333;
@@ -80,35 +99,13 @@ body {
     margin-top: 5px;
 }
 
-.history-container {
-    width: 100%;                /* Take up full width of the glass card */
-    display: flex;
-    justify-content: flex-start; /* Pushes the button to the far left */
-    margin-top: 15px;           /* Space between the drop area and button */
-}
+/* Mobile view */
+@media (max-width: 768px) {
+  .desktop-text {
+    display: none;
+  }
 
-.history-container .material-symbols-outlined {
-    color: #c9ced9;
-    font-size: 50px;
+  .mobile-text {
+    display: inline;
+  }
 }
-
-/*.btnHistory {
-    background: transparent;      
-    color: #f0f0f1;               
-    border: none;                 
-    padding: 10px 0;              
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: opacity 0.3s ease, transform 0.2s ease;
-    opacity: 0.8;                 
-}
-
-.btnHistory:hover {
-    opacity: 1;                  
-    transform: translateX(5px);   
-    color: #00ffcc;               
-}*

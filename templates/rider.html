@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rider Dashboard: Technofirst Workflow Inc.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_rider.css') }}?v=1">
+    <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
+        type="image/png">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="header-section">
+            <div class="header-left">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo">
+                <h1>RIDER DASHBOARD</h1>
+            </div>
+
+            <div class="header-right">
+                <p class="rider-name">
+                    Welcome, {{ session['username'] }}
+                </p>
+                
+                <a href="/logout" class="logout-btn">
+                    Logout
+                </a>
+            </div>
+
+        </div>
+        <div class="delivery-container">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>QUEUE ID</th>
+                            <th>CUSTOMER</th>
+                            <th>ADDRESS</th>
+                            <th>DEADLINE</th>
+                            <th>PRICE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="deliveryTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/scripts_rider.js') }}?v=1"></script>
+
+</body>
+</html>

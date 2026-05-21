@@ -1,0 +1,124 @@
+body {
+
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, rgba(10, 15, 30, 0.5), rgba(30, 20, 50, 0.5)), 
+        url("../images/bg.png"), 
+        #020205;
+
+    background-size: cover;
+    background-position: center;
+
+    font-family: "Montserrat", sans-serif;
+
+    image-rendering: auto;
+}
+
+.login-card {
+
+    width: 350px;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background: rgba(10, 15, 35, 0.85);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.4);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    align-items: center;
+}
+
+.logo {
+
+    width: 120px;
+}
+
+h1 {
+
+    color: white;
+    letter-spacing: 2px;
+}
+
+input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: none;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 16px;
+}
+
+input:focus {
+
+    outline: 2px solid #4CAF50;
+}
+
+button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4CAF50;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+
+    background: #43a047;
+}
+
+.register-link {
+
+    margin-top: 10px;
+
+    color: #8ab4ff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: 0.2s ease;
+}
+
+.register-link:hover {
+
+    color: white;
+}

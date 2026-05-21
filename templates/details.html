@@ -2,86 +2,189 @@
 <html>
 
 <head>
-    <title>Details - Technofirst Workflow Inc.</title>
+    <title>Details: Technofirst Workflow Inc.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_details.css') }}?v=1">
     <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
-        type="image/png" style="width: 32px; height: 32px;">
+        type="image/png">
 </head>
 
 <body>
     <div class="main-wrapper">
-        <div class="glass-card">
+        <form class="glass-card" id="detailsForm" autocomplete="off">
+
+            <!-- HEADER -->
             <div class="header-row">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" class="app-logo"><br>
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="app-logo">
                 <h1 class="title">DETAILS</h1>
             </div>
 
+            <!-- FILE INFO -->
             <div class="file-config-box">
                 <p class="config-label">Configuring:</p>
                 <p id="displayFileName" class="filename-text">No file selected</p>
             </div>
 
+            <!-- FORM -->
             <div class="form-container">
-                <div class="form-grid">
-                    <label>Paper Type:</label>
-                    <select id="paperType">
-                        <option value="Regular">Regular</option>
-                        <option value="Laminated">Laminated</option>
+
+                <!-- FILE TYPE -->
+                <label>File Type:</label>
+                <select id="fileType" onchange="handleFileType()">
+                    <option value="">Select</option>
+                    <option value="document">Document / PDF</option>
+                    <option value="photo">Photo</option>
+                    <option value="collection">Collection of Photos</option>
+                </select>
+
+                <!-- GENERAL PAPER TYPE -->
+                <label>Paper Type:</label>
+                <select id="paperType">
+                    <option value="bond">Bond Paper</option>
+                    <option value="glossy">Glossy Photo Paper</option>
+                    <option value="matte">Matte Photo Paper</option>
+                    <option value="card">Card Paper</option>
+                    <option value="vellum">Vellum Paper</option>
+                </select>
+
+                <!-- COLOR MODE -->
+                <label>Color Mode:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="colorMode" value="colored" checked> Colored</label>
+                    <label><input type="radio" name="colorMode" value="bw"> Black & White</label>
+                </div>
+
+                <!-- ================= PHOTO SECTION ================= -->
+                <div id="photoSection" class="section hidden">
+
+                    <label>Photo Size:</label>
+                    <select id="photoSize">
+                        <option value="1x1">1 x 1 inches</option>
+                        <option value="2x2">2 x 2 inches</option>
+                        <option value="2r">2R (2.5 x 3.5)</option>
+                        <option value="3r">3R (3.5 x 5)</option>
+                        <option value="4r">4R (4 x 6)</option>
+                        <option value="5r">5R (5 x 7)</option>
+                        <option value="a4">A4 (8.3 x 11.7)</option>
                     </select>
 
-                    <label>Size:</label>
-                    <select id="sizeSelect">
-                        <option value="Letter">Letter (Short)</option>
-                        <option value="A4">A4</option>
-                        <option value="Legal">Legal (Long)</option>
+                </div>
+
+                <!-- ================= DOCUMENT SECTION ================= -->
+                <div id="docSection" class="section hidden">
+
+                    <label>Paper Size:</label>
+                    <select id="docSize">
+                        <option value="letter">Letter (8.5 x 11)</option>
+                        <option value="legal">Legal (8.5 x 14)</option>
+                        <option value="a4">A4 (8.3 x 11.7)</option>
                     </select>
 
-                    <label>Color Mode:</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="colorMode" value="colored" checked> Colored</label>
-                        <label><input type="radio" name="colorMode" value="bw"> Black & White</label>
+                        <label>Is this a Thesis?</label>
+                        <label><input type="radio" name="isThesis" value="yes"> Yes</label>
+                        <label><input type="radio" name="isThesis" value="no" checked> No</label>
                     </div>
 
-                    <label class="doc-option">Is this a Thesis?</label>
-                    <div class="radio-group doc-option">
-                        <label><input type="radio" name="isThesis" value="Yes"> Yes</label>
-                        <label><input type="radio" name="isThesis" value="No" checked> No</label>
+                    <div class="radio-group">
+                        <label>Include Binding?</label>
+                        <label><input type="radio" name="binding" value="yes"> Yes</label>
+                        <label><input type="radio" name="binding" value="no" checked> No</label>
                     </div>
 
-                    <label class="doc-option">Include Binding?</label>
-                    <div class="radio-group doc-option">
-                        <label><input type="radio" name="shouldBind" value="Yes"> Yes</label>
-                        <label><input type="radio" name="shouldBind" value="No" checked> No</label>
+                    <div class="radio-group">
+                        <label>Laminated?</label>
+                        <label><input type="radio" name="laminate" value="yes"> Yes</label>
+                        <label><input type="radio" name="laminate" value="no" checked> No</label>
                     </div>
+
+                </div>
+
+                <!-- ================= COLLECTION SECTION ================= -->
+                <div id="collectionSection" class="section hidden">
+
+                    <label>Paper Size:</label>
+                    <select id="collectionSize">
+                        <option value="letter">Letter (8.5 x 11)</option>
+                        <option value="legal">Legal (8.5 x 14)</option>
+                        <option value="a4">A4 (8.3 x 11.7)</option>
+                    </select>
+
+                    <div class="radio-group">
+                        <label>Paper cut the photos?</label>
+                        <label><input type="radio" name="cutPhotos" value="yes"> Yes</label>
+                        <label><input type="radio" name="cutPhotos" value="no" checked> No</label>
+                    </div>
+
+                </div>
+
+                <!-- ================= GENERAL SECTION ================= -->
+                <div class="section">
 
                     <label>In a hurry?</label>
                     <div class="radio-group">
                         <label><input type="radio" name="isHurry" value="yes"> Yes</label>
                         <label><input type="radio" name="isHurry" value="no" checked> No</label>
                     </div>
+
+                    <!-- (already handled by your system) -->
+                    <div id="deadlineSection" class="hidden">
+                        <label>Deadline:</label>
+                        <input type="time" id="deadlineTime">
+                    </div>
+
                 </div>
 
-                <div id="prioritySection" class="hurry-section">
-                    <hr class="divider">
-                    <div class="form-grid">
-                        <label>Priority:</label>
-                        <div class="slider-container">
-                            <input type="range" id="priorityRange" min="1" max="10" value="5">
-                            <div class="slider-labels">
-                                <span>1 (High)</span>
-                                <span id="priorityValue">5</span>
-                                <span>10 (Low)</span>
-                            </div>
-                        </div>
+                <!-- ================= MORE INFO ================= -->
+                <div class="section">
 
-                        <label>Deadline:</label>
-                        <input type="time" id="deadlineTime" required>
+                    <label>Additional Information</label>
+
+                    <textarea id="moreInfo" rows="3"
+                        placeholder="e.g. 3 copies, colored cover page, stapled, etc."></textarea>
+
+                </div>
+
+                <!-- ================= DELIVERY ================= -->
+                <div class="section">
+
+                    <label>Pickup or Delivery:</label>
+                    <select id="deliveryType" onchange="handleDelivery()">
+                        <option value="pickup">Pickup</option>
+                        <option value="delivery">Delivery</option>
+                    </select>
+
+                    <div id="deliveryFields" class="hidden">
+
+                        <label>First Name *</label>
+                        <input type="text" autocomplete="new-password" id="firstName" required>
+
+                        <label>Middle Name</label>
+                        <input type="text" autocomplete="new-password" id="middleName">
+
+                        <label>Last Name *</label>
+                        <input type="text" autocomplete="new-password" id="lastName" required>
+
+                        <label>Address *</label>
+                        <input type="text" autocomplete="new-password" id="address" required>
+
+                        <label>Contact Number *</label>
+                        <input type="tel" autocomplete="new-password" id="contactNumber" pattern="[0-9]{11}" maxlength="11"
+                            placeholder="09XXXXXXXXX" required>
+
                     </div>
                 </div>
+
             </div>
-            <input type="submit" class="btn-submit" id="submitBtn" value="ADD TO PRINT QUEUE">
-        </div>
+
+            <!-- SUBMIT -->
+            <button type="submit" class="btn-submit" id="submitBtn">
+                ADD TO PRINT QUEUE
+            </button>
+
+        </form>
     </div>
+
     <script src="{{ url_for('static', filename='scripts/scripts_details.js') }}?v=1"></script>
 </body>
 

@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Technofirst Workflow Inc.</title>
+    <title>Upload your file: Technofirst Workflow Inc.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_index.css') }}?v=1">
     <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
         type="image/png" style="width: 32px; height: 32px;">
@@ -18,11 +19,17 @@
 
     <div class="container">
         <div id="dropArea" class="drop-area">
-            <span class="material-symbols-outlined">attachment</span>
-            <p>Drag & Drop files here or click to attach</p>
+            <span class="material-symbols-outlined">attachment</span><br>
+            <p class="desktop-text">Drag & Drop files here or click to attach</p>
+            <p class="mobile-text">Click here to attach</p>
+            <p style="margin-top: 8px;
+                font-size: 0.9rem;
+                color: rgba(255,255,255,0.7);">
+                Supported files: PNG, JPG, JPEG, PDF, DOCX • Max: 100MB
+            </p>
         </div>
 
-        <input type="file" id="fileInput" hidden accept=".jpg, .jpeg, .png, .webp, .txt, .pdf, .docx, .doc, .xlsx, .xls, .ppt, pptx>
+        <input type="file" id="fileInput" hidden accept=".jpg, .jpeg, .png, .pdf, .docx, .doc>
         <p id=" fileName"></p>
 
         <div id="uploadStatus" style="display:none; width: 100%; margin-top: 20px;">
@@ -31,15 +38,6 @@
             </div>
             <p id="statusText">Uploading: 0%</p>
         </div>
-
-        <!--
-        <div class="history-container">
-            <button id="history" class="btnHistory">
-                <span class="material-symbols-outlined">history</span>History
-            </button>
-        </div>
-        -->
-
         <script src="{{ url_for('static', filename='scripts/scripts_index.js') }}?v=1"></script>
 </body>
 

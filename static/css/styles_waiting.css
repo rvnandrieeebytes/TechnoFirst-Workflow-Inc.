@@ -2,16 +2,31 @@
 body {
     margin: 0;
     padding: 0;
-    background:
-        linear-gradient(135deg, rgba(54, 68, 109, 0.776), rgba(181, 146, 190, 0.776)),
-        url("../images/bg.jpg");
-    background-size: cover;
-    background-position: center;
+    
+    /* 1. LOWER OPACITY = HIGHER CLARITY */
+    /* Changed 0.776 to 0.4 to let the high-res stars show through clearly */
+    background: 
+        linear-gradient(135deg, rgba(10, 15, 30, 0.5), rgba(30, 20, 50, 0.5)), 
+        url("../images/bg.png"), 
+        #020205;
+    
+    /* 2. PREVENT STRETCHING */
+    background-size: cover;       /* Fills the screen without distorting */
+    background-position: center;  /* Keeps the most interesting part of the nebula centered */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Creates a sense of deep, unmoving space */
+    
+    /* 3. LAYOUT */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    /* 4. FALLBACK & TEXT */
+    background-color: #05050a;    /* Matches the deep black of the space image */
     color: white;
+
+    image-rendering: auto;
 }
 
 .container {
@@ -91,7 +106,7 @@ body {
 
 .queue-number {
     font-family: "Montserrat", sans-serif;
-    font-size: 7rem;
+    font-size: 2rem;
     margin: 10px 0;
     font-weight: 900;
     /*background: linear-gradient(to bottom, #fff, #94a3b8);*/

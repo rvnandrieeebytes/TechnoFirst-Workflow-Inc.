@@ -5,64 +5,63 @@
     <title>Admin: Technofirst Workflow Inc.</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_admin.css') }}?v=1">
     <link rel="icon" href="{{ url_for('static', filename='images/Technofirst (printer logo).png') }}?v=1"
-        type="image/png" style="width: 32px; height: 32px;">
+        type="image/png">
 </head>
 
 <body>
-    <div class="container">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Technofirst Workflow Inc." id="logo">
+
+    <!-- LOGOUT BUTTON -->
+    <div style="position: absolute; top: 20px; right: 30px;">
+        <a href="/logout"
+           style="
+                background:#d32f2f;
+                color:white;
+                padding:10px 16px;
+                border-radius:8px;
+                text-decoration:none;
+                font-weight:bold;
+                font-family:Arial;
+           ">
+            Logout
+        </a>
     </div>
 
-    <h1 id="title">
-        ADMIN DASHBOARD
-    </h1>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" id="logo">
+    </div>
+
+    <h1 id="title">ADMIN DASHBOARD</h1>
 
     <div class="queue-table">
-        <table border="1"
-            style="width: 100%; color: white; background: #111; border-collapse: collapse; text-align: left;">
-            <thead style="color: #4CAF50;">
-                <tr>
-                    <th>ID</th>
-                    <th>FILE NAME</th>
-                    <th>PAPER</th>
-                    <th>SIZE</th>
-                    <th>COLOR</th>
-                    <th>THESIS?</th>
-                    <th>BIND?</th>
-                    <th>HURRY/DEADLINE</th>
-                    <th>ACTION</th>
-                </tr>
-            </thead>
-            <tbody id = "queueTableBody">
-                {% for order in orders %}
-                <tr style="border-bottom: 1px solid #333;">
-                    <td style="padding: 10px;">{{ order.assignedID }}</td>
-                    <td>{{ order.fileName }}</td>
-                    <td>{{ order.paperType }}</td>
-                    <td>{{ order.size }}</td>
-                    <td>{{ "Colored" if order.colorMode == "colored" else "B&W" }}</td>
-                    <td>{{ order.isThesis }}</td>
-                    <td>{{ order.shouldBind }}</td>
-                    <td>
-                        {% if order.isHurry == 'yes' %}
-                        <span style="color: #ff4444;">PRIORITY: {{ order.priority }}</span><br>
-                        <small>By: {{ order.deadline }}</small>
-                        {% else %}
-                        Normal
-                        {% endif %}
-                    </td>
-                    <td>
-                        <button onclick="markDone('{{ order.fileName }}', this)"
-                            style="background: #4CAF50; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px;">
-                            MARK AS DONE
-                        </button>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+        <div class="table-wrapper">
 
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>FILE NAME</th>
+                        <th>PAPER</th>
+                        <th>SIZE</th>
+                        <th>COLOR</th>
+                        <th>THESIS?</th>
+                        <th>BIND?</th>
+                        <th>OTHER</th>
+                        <th>HURRY/DEADLINE</th>
+                        <th>TYPES</th>
+                        <th>PRICE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+
+                <tbody id="queueTableBody">
+                    <!-- JS RENDERS HERE -->
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
     <script src="{{ url_for('static', filename='scripts/scripts_admin.js') }}?v=1"></script>
 </body>
 
